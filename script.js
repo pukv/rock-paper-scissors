@@ -8,3 +8,9 @@ function getComputerChoice() {
     console.log("Computer picked scissors!");
   }
 }
+
+// Called the function a couple of times to determine if the logic is good
+
+// getComputerChoice();
+// getComputerChoice();
+// getComputerChoice();
