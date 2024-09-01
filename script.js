@@ -1,11 +1,11 @@
 function getComputerChoice() {
   let computerPick = Math.random();
   if (computerPick <= 0.33) {
-    console.log("Computer picked Rock!");
+    return console.log("Computer picked Rock!");
   } else if (computerPick >= 0.33 && computerPick >= 0.66) {
-    console.log("Computer picked Paper!");
+    return console.log("Computer picked Paper!");
   } else {
-    console.log("Computer picked scissors!");
+    return console.log("Computer picked scissors!");
   }
 }
 
@@ -14,3 +14,16 @@ function getComputerChoice() {
 // getComputerChoice();
 // getComputerChoice();
 // getComputerChoice();
+
+function getHumanChoice() {
+  let humanChoice = prompt("Rock Paper Scissors?");
+  if (humanChoice === "Rock") {
+    return console.log("You picked Rock!");
+  } else if (humanChoice === "Paper") {
+    return console.log("You picked Paper!");
+  } else if (humanChoice === "Scissors") {
+    return console.log("You picked scissors!");
+  } else {
+    return console.log("Please pick a valid option.");
+  }
+}
