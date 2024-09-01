@@ -27,3 +27,8 @@ function getHumanChoice() {
     return console.log("Please pick a valid option.");
   }
 }
+
+// humanChoice();
+// humanChoice();
+// humanChoice();
+// humanChoice();
