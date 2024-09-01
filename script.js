@@ -2,79 +2,54 @@ function getComputerChoice() {
   let computerPick = Math.random();
   if (computerPick <= 0.33) {
     return "Rock";
-  } else if (computerPick >= 0.33 && computerPick >= 0.66) {
+  } else if (computerPick <= 0.66) {
     return "Paper";
   } else {
     return "Scissors";
   }
 }
-
-// Called the function a couple of times to determine if the logic is good
-// getComputerChoice();
-// getComputerChoice();
-// getComputerChoice();
 
 function getHumanChoice() {
   let humanChoice = prompt("Rock Paper Scissors?");
-  if (humanChoice === "Rock") {
-    return "Rock";
-  } else if (humanChoice === "Paper") {
-    return "Paper";
-  } else if (humanChoice === "Scissors") {
-    return "Scissors";
+  // make the users input be case insensitive
+  humanChoice =
+    humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
+  if (
+    humanChoice === "Rock" ||
+    humanChoice === "Paper" ||
+    humanChoice === "Scissors"
+  ) {
+    return humanChoice;
   } else {
-    return "Please pick a valid option.";
+    alert("Please pick a valid option.");
+    return getHumanChoice();
   }
 }
-
-// Called the function a couple of times to determine if the logic is good
-// humanChoice();
-// humanChoice();
-// humanChoice();
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "Rock" && computerChoice === "Rock") {
-    return console.log(
-      "You picked Rock, the Computer picked Rock. It's a tie."
+  if (humanChoice === computerChoice) {
+    console.log(`It's a tie. You both picked ${humanChoice}`);
+  } else if (
+    (humanChoice === "Rock" && computerChoice === "Scissors") ||
+    (humanChoice === "Paper" && computerChoice === "Rock") ||
+    (humanChoice === "Scissors" && computerChoice === "Paper")
+  ) {
+    console.log(
+      `You picked ${humanChoice}, the Computer picked ${computerChoice}. You win.`
     );
-  } else if (humanChoice === "Rock" && computerChoice === "Paper") {
-    return console.log(
-      "You picked Rock, the Computer picked Paper. The Computer wins!"
+    humanScore++;
+  } else {
+    console.log(
+      `You picked ${humanChoice}, the Computer picked ${computerChoice}. The computer wins.`
     );
-  } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-    return console.log(
-      "You picked Rock, the Computer picked Scissors. You win!"
-    );
-  }
-
-  if (humanChoice === "Paper" && computerChoice === "Rock") {
-    return console.log("You picked Paper, the Computer picked Rock. You win!");
-  } else if (humanChoice === "Paper" && computerChoice === "Paper") {
-    return console.log(
-      "You picked Paper, the Computer picked Paper. It's a tie."
-    );
-  } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-    return console.log(
-      "You picked Paper, the Computer picked Scissors. Computer wins!"
-    );
-  }
-
-  if (humanChoice === "Scissors" && computerChoice === "Rock") {
-    return console.log(
-      "You picked Scissors, the Computer picked Rock. Computer wins!"
-    );
-  } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-    return console.log(
-      "You picked Scissors, the Computer picked Paper. You win!"
-    );
-  } else if (humanChoice === "Scissors" && computerChoice === "Scissors") {
-    return console.log(
-      "You picked Scissors, the Computer picked Scissors. It's a tie."
-    );
+    computerScore++;
   }
 }
 
-playRound(getComputerChoice(), getHumanChoice());
+playRound(getHumanChoice(), getComputerChoice());
+
+console.log(`User wins: ${humanScore}`);
+console.log(`Computer wins: ${computerScore}`);
