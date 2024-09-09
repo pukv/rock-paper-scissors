@@ -52,13 +52,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  for (let round = 0; round < 5; round++) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`User wins: ${humanScore}`);
-    console.log(`Computer wins: ${computerScore}`);
-  }
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  console.log(`User wins: ${humanScore}`);
+  console.log(`Computer wins: ${computerScore}`);
 }
 
 playGame();
