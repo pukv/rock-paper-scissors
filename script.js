@@ -6,7 +6,9 @@ let playerWins = 0;
 let computerWins = 0;
 
 const humanScore = document.createElement("p");
+humanScore.textContent = `Player wins: ${playerWins}`;
 const computerScore = document.createElement("p");
+computerScore.textContent = `Computer wins: ${computerWins}`;
 resultDiv.appendChild(humanScore);
 resultDiv.appendChild(computerScore);
 
