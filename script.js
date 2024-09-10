@@ -1,16 +1,16 @@
-container = document.querySelector(".container");
-resultDiv = document.createElement("div");
+const container = document.querySelector(".container");
+const resultDiv = document.createElement("div");
 container.appendChild(resultDiv);
 
 let playerWins = 0;
 let computerWins = 0;
 
-humanScore = document.createElement("p");
-computerScore = document.createElement("p");
+const humanScore = document.createElement("p");
+const computerScore = document.createElement("p");
 resultDiv.appendChild(humanScore);
 resultDiv.appendChild(computerScore);
 
-resetBtn = document.createElement("button");
+const resetBtn = document.createElement("button");
 resetBtn.textContent = "Reset Score";
 resetBtn.classList.add("reset-button");
 container.appendChild(resetBtn);
@@ -26,9 +26,9 @@ function getComputerChoice() {
   }
 }
 
-rockBtn = document.querySelector(".rock");
-paperBtn = document.querySelector(".paper");
-scissorsBtn = document.querySelector(".scissors");
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
 
 rockBtn.addEventListener("click", () => {
   const computerChoice = getComputerChoice();
@@ -45,7 +45,7 @@ scissorsBtn.addEventListener("click", () => {
   playRound("Scissors", computerChoice);
 });
 
-roundResult = document.createElement("p");
+const roundResult = document.createElement("p");
 resultDiv.appendChild(roundResult);
 
 function playRound(humanChoice, computerChoice) {
