@@ -1,3 +1,7 @@
+// Variables that store the score
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   let computerPick = Math.random(); // as there are 3 possible choices, the number 1 will be divided into 3 equal parts
   if (computerPick <= 0.33) {
@@ -9,26 +13,24 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let humanChoice = prompt("Rock Paper Scissors?");
-  // Make the user input not case sensitive
-  humanChoice =
-    humanChoice[0].toUpperCase() + humanChoice.slice(1).toLowerCase();
-  if (
-    humanChoice === "Rock" ||
-    humanChoice === "Paper" ||
-    humanChoice === "Scissors"
-  ) {
-    return humanChoice;
-  } else {
-    alert("Please pick a valid option."); // Prompt if the user enters something like 'stone' or any other word that's not legit
-    return getHumanChoice();
-  }
-}
+rockBtn = document.querySelector(".rock");
+paperBtn = document.querySelector(".paper");
+scissorsBtn = document.querySelector(".scissors");
 
-// Variables that store the score
-let humanScore = 0;
-let computerScore = 0;
+rockBtn.addEventListener("click", () => {
+  const computerChoice = getComputerChoice;
+  playRound("Rock", computerChoice);
+});
+
+paperBtn.addEventListener("click", () => {
+  const computerChoice = getComputerChoice;
+  playRound("Paper", computerChoice);
+});
+
+scissorsBtn.addEventListener("click", () => {
+  const computerChoice = getComputerChoice;
+  playRound("Scissors", computerChoice);
+});
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
@@ -58,5 +60,3 @@ function playGame() {
   console.log(`User wins: ${humanScore}`);
   console.log(`Computer wins: ${computerScore}`);
 }
-
-playGame();
