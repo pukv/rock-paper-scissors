@@ -1,6 +1,14 @@
-// Variables that store the score
-let humanScore = 0;
-let computerScore = 0;
+container = document.querySelector(".container");
+resultDiv = document.createElement("div");
+container.appendChild(resultDiv);
+
+let playerWins = 0;
+let computerWins = 0;
+
+humanScore = document.createElement("p");
+computerScore = document.createElement("p");
+resultDiv.appendChild(humanScore);
+resultDiv.appendChild(computerScore);
 
 function getComputerChoice() {
   let computerPick = Math.random(); // as there are 3 possible choices, the number 1 will be divided into 3 equal parts
@@ -32,24 +40,24 @@ scissorsBtn.addEventListener("click", () => {
   playRound("Scissors", computerChoice);
 });
 
+roundResult = document.createElement("p");
+resultDiv.appendChild(roundResult);
+
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    console.log(`It's a tie. You both picked ${humanChoice}`);
+    roundResult.textContent = `It's a tie. You both picked ${humanChoice}`;
   } else if (
-    // Conditions in which the user wins the game
     (humanChoice === "Rock" && computerChoice === "Scissors") ||
     (humanChoice === "Paper" && computerChoice === "Rock") ||
     (humanChoice === "Scissors" && computerChoice === "Paper")
   ) {
-    console.log(
-      `You picked ${humanChoice}, the Computer picked ${computerChoice}. You win.`
-    );
-    humanScore++; // Increments the user score by +1
+    roundResult.textContent = `You picked ${humanChoice}, the Computer picked ${computerChoice}. You win.`;
+    playerWins++;
+    humanScore.textContent = `Player wins: ${playerWins}`;
   } else {
-    console.log(
-      `You picked ${humanChoice}, the Computer picked ${computerChoice}. The computer wins.`
-    );
-    computerScore++; // Increments the computer score by +1
+    roundResult.textContent = `You picked ${humanChoice}, the Computer picked ${computerChoice}. The computer wins.`;
+    computerWins++;
+    computerScore.textContent = `Computer wins: ${computerWins}`;
   }
 }
 
@@ -57,6 +65,4 @@ function playGame() {
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
-  console.log(`User wins: ${humanScore}`);
-  console.log(`Computer wins: ${computerScore}`);
 }
