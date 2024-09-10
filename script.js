@@ -16,7 +16,7 @@ resetBtn.classList.add("reset-button");
 container.appendChild(resetBtn);
 
 function getComputerChoice() {
-  let computerPick = Math.random(); // as there are 3 possible choices, the number 1 will be divided into 3 equal parts
+  let computerPick = Math.random();
   if (computerPick <= 0.33) {
     return "Rock";
   } else if (computerPick <= 0.66) {
