@@ -74,9 +74,3 @@ resetBtn.addEventListener("click", () => {
   humanScore.textContent = `Player wins: ${playerWins}`;
   computerScore.textContent = `Computer wins: ${computerWins}`;
 });
-
-function playGame() {
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-}
