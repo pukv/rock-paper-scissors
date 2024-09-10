@@ -18,17 +18,17 @@ paperBtn = document.querySelector(".paper");
 scissorsBtn = document.querySelector(".scissors");
 
 rockBtn.addEventListener("click", () => {
-  const computerChoice = getComputerChoice;
+  const computerChoice = getComputerChoice();
   playRound("Rock", computerChoice);
 });
 
 paperBtn.addEventListener("click", () => {
-  const computerChoice = getComputerChoice;
+  const computerChoice = getComputerChoice();
   playRound("Paper", computerChoice);
 });
 
 scissorsBtn.addEventListener("click", () => {
-  const computerChoice = getComputerChoice;
+  const computerChoice = getComputerChoice();
   playRound("Scissors", computerChoice);
 });
 
