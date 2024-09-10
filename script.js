@@ -48,6 +48,11 @@ scissorsBtn.addEventListener("click", () => {
 const roundResult = document.createElement("p");
 resultDiv.appendChild(roundResult);
 
+function updateScores() {
+  computerScore.textContent = `Computer wins: ${computerWins}`;
+  humanScore.textContent = `Player wins: ${playerWins}`;
+}
+
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     roundResult.textContent = `It's a tie. You both picked ${humanChoice}`;
@@ -58,19 +63,15 @@ function playRound(humanChoice, computerChoice) {
   ) {
     roundResult.textContent = `You picked ${humanChoice}, the Computer picked ${computerChoice}. You win.`;
     playerWins++;
-    humanScore.textContent = `Player wins: ${playerWins}`;
-    computerScore.textContent = `Computer wins: ${computerWins}`;
   } else {
     roundResult.textContent = `You picked ${humanChoice}, the Computer picked ${computerChoice}. The computer wins.`;
     computerWins++;
-    computerScore.textContent = `Computer wins: ${computerWins}`;
-    humanScore.textContent = `Player wins: ${playerWins}`;
   }
+  updateScores();
 }
 
 resetBtn.addEventListener("click", () => {
   playerWins = 0;
   computerWins = 0;
-  humanScore.textContent = `Player wins: ${playerWins}`;
-  computerScore.textContent = `Computer wins: ${computerWins}`;
+  updateScores();
 });
